@@ -92,6 +92,12 @@ class TattooRequest(models.Model):
         CANCELLED = "cancelled", "Cancelled"
         COMPLETED = "completed", "Completed"
 
+    SIZES = [
+        ("small", "Small (up to 5 cm)"),
+        ("medium", "Medium (5-15 cm)"),
+        ("large", "Large (over 15 cm)"),
+    ]
+
     client = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.PROTECT,
@@ -107,7 +113,7 @@ class TattooRequest(models.Model):
     )
     description = models.TextField()
     placement = models.CharField(max_length=100, blank=True)
-    size = models.CharField(max_length=50, blank=True)
+    size = models.CharField(max_length=50, choices=SIZES, blank=True)
     status = models.CharField(
         max_length=10, choices=Status.choices, default=Status.NEW
     )

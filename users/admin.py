@@ -10,9 +10,9 @@ class UserAdmin(BaseUserAdmin):
     list_filter = (*BaseUserAdmin.list_filter, "role")
     fieldsets = (
         *BaseUserAdmin.fieldsets,
-        ("Studio", {"fields": ("role", "phone")}),
+        ("Role and contacts", {"fields": ("role", "phone")}),
     )
     add_fieldsets = (
         *BaseUserAdmin.add_fieldsets,
-        ("Studio", {"fields": ("email", "role", "phone")}),
+        ("Role and contacts", {"fields": ("email", "role", "phone")}),
     )
