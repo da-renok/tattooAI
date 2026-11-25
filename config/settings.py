@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'tattoos',
     'users',
 ]
@@ -133,3 +134,9 @@ AUTH_USER_MODEL = 'users.User'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+REST_FRAMEWORK = {
+    "EXCEPTION_HANDLER": "config.exception_handler.custom_exception_handler",
+}
+
+GEMINI_API_KEY = config("GEMINI_API_KEY", default="")
