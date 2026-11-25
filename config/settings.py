@@ -138,3 +138,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 REST_FRAMEWORK = {
     "EXCEPTION_HANDLER": "config.exception_handler.custom_exception_handler",
 }
+
+GEMINI_API_KEY = config("GEMINI_API_KEY", default="")
